@@ -30,3 +30,9 @@ Static, dependency-free, served via GitHub Pages.
 
 These coexist with the Proton mail records (MX/TXT) — different record types,
 no conflict.
+
+## License
+
+© 2026 Hudly. All rights reserved. This repository is public so the site can be
+served via GitHub Pages — that does not grant any right to reuse its content,
+design or brand assets.
