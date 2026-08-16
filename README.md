@@ -6,11 +6,11 @@ Static, dependency-free, served via GitHub Pages.
 
 ## Publish
 
-1. Create the repo `hudly-dev.github.io` in the `hudly-dev` org (public).
+1. Create the repo `hudly` in the `hudly-dev` org (public).
 2. Push this folder:
 
    ```
-   git remote add origin git@github.com:hudly-dev/hudly-dev.github.io.git
+   git remote add origin git@github.com:hudly-dev/hudly.git
    git push -u origin main
    ```
 
