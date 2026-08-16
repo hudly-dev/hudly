@@ -36,7 +36,11 @@
     line-height: 1.6;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+    user-select: none;
+    -webkit-user-select: none;
+    cursor: default;
   }
+  a { cursor: pointer; }
   ::selection { background: var(--accent); color: #06211d; }
 
   /* ---- ambient background: faint grid + teal aurora ---- */
