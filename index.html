@@ -12,7 +12,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg fill='%23e5e7eb' stroke='%23e5e7eb' stroke-width='3' stroke-linejoin='round'%3E%3Cpath d='M27 12 L44 12 L37 88 L20 88 Z'/%3E%3Cpath d='M70 12 L87 12 L80 88 L63 88 Z'/%3E%3C/g%3E%3Cpath d='M40 42 L93 42 L89 58 L36 58 Z' fill='%232dd4bf' stroke='%232dd4bf' stroke-width='3' stroke-linejoin='round'/%3E%3C/svg%3E">
 <style>
   :root {
-    --bg: #060709;
+    --bg: #040506;
     --panel: #16181d;
     --border: #2a2e38;
     --hairline: rgba(255, 255, 255, 0.055);
@@ -77,8 +77,12 @@
   }
   .gh-link:hover { color: var(--fg); border-color: var(--fg-subtle); background: var(--panel); }
 
-  /* ---- hero ---- */
-  .hero { text-align: center; padding: 96px 0 40px; }
+  /* ---- hero: text links, HUD-Buehne rechts ---- */
+  .hero {
+    display: grid; grid-template-columns: 1.05fr 1fr;
+    gap: 56px; align-items: center;
+    padding: 72px 0 40px; text-align: left;
+  }
   .pill {
     display: inline-flex; align-items: center; gap: 8px;
     font-size: 13px; color: var(--fg-muted);
@@ -98,19 +102,19 @@
     100% { box-shadow: 0 0 0 0 transparent; }
   }
   h1 {
-    font-size: clamp(40px, 6.5vw, 68px);
-    font-weight: 800; letter-spacing: -0.03em; line-height: 1.06;
-    max-width: 17ch; margin: 0 auto;
+    font-size: clamp(32px, 4.6vw, 52px);
+    font-weight: 800; letter-spacing: -0.03em; line-height: 1.1;
+    margin: 0;
   }
   h1 .glow {
     background: linear-gradient(100deg, var(--accent) 10%, var(--accent-hover) 55%, var(--accent) 90%);
     -webkit-background-clip: text; background-clip: text; color: transparent;
   }
   .sub {
-    max-width: 56ch; margin: 24px auto 0;
-    font-size: 18px; color: var(--fg-muted);
+    max-width: 46ch; margin: 20px 0 0;
+    font-size: 16.5px; color: var(--fg-muted);
   }
-  .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 38px; }
+  .cta-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 30px; }
   .btn {
     display: inline-flex; align-items: center; gap: 9px;
     font-size: 16px; font-weight: 600; text-decoration: none;
@@ -130,7 +134,7 @@
   .cta-note { margin-top: 14px; font-size: 13px; color: var(--fg-subtle); }
 
   /* ---- HUD mock ---- */
-  .stage-outer { position: relative; margin: 72px auto 0; max-width: 880px; }
+  .stage-outer { position: relative; margin: 0; }
   .stage {
     position: relative; aspect-ratio: 16 / 9;
     background:
@@ -283,9 +287,11 @@
   .d4 { animation-delay: .35s; } .d5 { animation-delay: .5s; }
   @keyframes reveal { to { opacity: 1; transform: none; } }
 
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; gap: 44px; padding-top: 56px; }
+  }
   @media (max-width: 760px) {
     .features { grid-template-columns: 1fr; }
-    .hero { padding-top: 64px; }
     .objective { display: none; }
   }
   @media (prefers-reduced-motion: reduce) {
@@ -317,18 +323,20 @@
   </header>
 
   <section class="hero">
-    <div class="pill reveal d1"><span class="dot"></span> In active development</div>
-    <h1 class="reveal d2">Design your game's HUD <span class="glow">without the busywork</span></h1>
-    <p class="sub reveal d3">
-      Hudly gives your game's interface its own design studio. You can lay out anything
-      from a plain health bar to a full menu system, style it live, and ship everything
-      into Unreal&nbsp;Engine as native widgets whenever you are ready.
-    </p>
-    <div class="cta-row reveal d4">
-      <a class="btn btn-primary" href="mailto:hello@hudly.dev?subject=Hudly%20Beta">Get on the beta list</a>
-      <a class="btn btn-ghost" href="https://github.com/hudly-dev" rel="noopener">Follow along</a>
+    <div class="hero-copy">
+      <div class="pill reveal d1"><span class="dot"></span> In active development</div>
+      <h1 class="reveal d2">Design your game's HUD without the <span class="glow">busywork</span></h1>
+      <p class="sub reveal d3">
+        Hudly gives your game's interface its own design studio. Lay out anything from
+        a health bar to a full menu system, style it live, and ship it into
+        Unreal&nbsp;Engine as native widgets.
+      </p>
+      <div class="cta-row reveal d4">
+        <a class="btn btn-primary" href="mailto:hello@hudly.dev?subject=Hudly%20Beta">Get on the beta list</a>
+        <a class="btn btn-ghost" href="https://github.com/hudly-dev" rel="noopener">Follow along</a>
+      </div>
+      <p class="cta-note reveal d4">We send one email when the first beta opens, and that's it.</p>
     </div>
-    <p class="cta-note reveal d4">We send one email when the first beta opens, and that's it.</p>
 
     <div class="stage-outer reveal d5">
       <div class="stage" role="img" aria-label="Stylized game HUD with health bar, minimap, ammo counter and objectives">
@@ -366,7 +374,7 @@
           <div class="cap">7.62 MM</div>
         </div>
       </div>
-      <p class="stage-caption">// every element above: draggable, themeable, bakeable</p>
+      <p class="stage-caption">// every element here: draggable, themeable, bakeable</p>
     </div>
   </section>
 
