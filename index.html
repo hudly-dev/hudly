@@ -285,14 +285,20 @@
   .d4 { animation-delay: .35s; } .d5 { animation-delay: .5s; }
   @keyframes reveal { to { opacity: 1; transform: none; } }
 
+  /* Mobil (einspaltig) kehrt der Hero zur zentrierten Optik zurueck —
+     linksbuendig gehoert zur Zweispalten-Buehne, nicht zur Schmalansicht. */
   @media (max-width: 900px) {
-    .hero { grid-template-columns: 1fr; gap: 44px; padding-top: 56px; }
+    .hero { grid-template-columns: 1fr; gap: 44px; padding-top: 56px; text-align: center; }
+    .sub { margin-left: auto; margin-right: auto; }
+    .cta-row { justify-content: center; }
   }
   @media (max-width: 640px) {
     header .pill { display: none; }
+    footer { flex-direction: column; justify-content: center; text-align: center; gap: 10px; }
   }
   @media (max-width: 760px) {
-    .features { grid-template-columns: 1fr; }
+    /* 88px Desktop-Luft wirkt einspaltig wie ein Loch zwischen Buehne und Karten. */
+    .features { grid-template-columns: 1fr; padding-top: 44px; }
     .objective { display: none; }
   }
   @media (prefers-reduced-motion: reduce) {
